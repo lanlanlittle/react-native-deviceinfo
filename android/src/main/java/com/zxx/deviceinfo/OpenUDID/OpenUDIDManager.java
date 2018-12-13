@@ -47,14 +47,14 @@ public class OpenUDIDManager {
 	/**
 	 * 调用ContentResolver的实例
 	 */
-	private static Activity mActivity = null;
+	private static Context mActivity = null;
 
 	/**
 	 * 初始化OpenUDID管理实例，把当前的Activity设置进来 一定要先调用
 	 * 
 	 * @param activity
 	 */
-	public static void init(Activity activity) {
+	public static void init(Context activity) {
 		OpenUDIDManager.mActivity = activity;
 		OpenUDID_manager.sync(mActivity);
 	}

@@ -25,6 +25,7 @@ import java.util.Enumeration;
 
 public class DeviceUtil {
     public static JSONObject getDeviceInfo(Context context){
+        OpenUDIDManager.init(context);
         String model = android.os.Build.MODEL; // 手机型号
         String udid = OpenUDIDManager.getDeviceOpenUDID();// String
 
@@ -286,11 +287,6 @@ public class DeviceUtil {
 
     private static String getUserAgent(Context context)
     {
-        WebView pWebView = new WebView(context);
-
-        WebSettings settings = pWebView.getSettings();
-        String ua = settings.getUserAgentString();
-        Log.e("AppActivity", "User Agent:" + ua);
-        return ua;
+        return WebSettings.getDefaultUserAgent(context);
     }
 }
