@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 #define _STR_USERCONFIG_UDID                        @"userudid"                 //用户的UDID 如果用户修改UDID就无法使用软件
-#define _STR_USERCONFIG_OPENUDID                        @"bailinopenudid"
+#define _STR_USERCONFIG_OpenUDID_RN                        @"bailinOpenUDID_RN"
 
 @interface UIDevice (IdentifierAddition)
 
@@ -38,8 +38,8 @@
 - (NSString*)getUDID;
 - (void)setUDID:(NSString*)strUDID;
 
-//获取openudid 先从keychain里取
--(NSString*)getKeyChainOpenUDID;
+//获取OpenUDID_RN 先从keychain里取
+-(NSString*)getKeyChainOpenUDID_RN;
 
 -(NSString*) getMd5IDFA;
 @end

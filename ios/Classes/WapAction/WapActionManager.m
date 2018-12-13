@@ -11,8 +11,6 @@
 #import "DeviceManager.h"
 #import "EasyManager.h"
 #import <objc/runtime.h>
-#import "YMDDeviceInfo.h"
-#import "SimulateIDFA.h"
 
 @implementation WapActionManager
 

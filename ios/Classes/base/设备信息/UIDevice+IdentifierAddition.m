@@ -10,7 +10,7 @@
 #import "NSString+MD5Addition.h"
 #import "SFHFKeychainUtils.h"
 
-#import "OpenUDID.h"
+#import "OpenUDID_RN.h"
 #include <sys/socket.h> // Per msqr
 #include <sys/sysctl.h>
 #include <net/if.h>
@@ -95,8 +95,8 @@
     NSString* udid = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];;
   
     if ([udid isEqualToString:@"00000000-0000-0000-0000-000000000000"])
-    {//如果取不到 idfa  就取openudid
-        udid = [OpenUDID value];
+    {//如果取不到 idfa  就取OpenUDID_RN
+        udid = [OpenUDID_RN value];
     }
 
      udid = [NSString stringWithFormat:@"bl%@",udid]; //增加bl
@@ -105,7 +105,7 @@
     return uniqueIdentifier;
 
 #else
-    NSString* udid = [OpenUDID value];
+    NSString* udid = [OpenUDID_RN value];
     
     NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
     
@@ -147,7 +147,7 @@
         if ([systemUDID isEqualToString:@"ae506bbded1cc5cb591c04922659a8d6"])
         {
             //过滤特殊的
-            systemUDID = [[OpenUDID value] stringFromMD5];
+            systemUDID = [[OpenUDID_RN value] stringFromMD5];
         }
         
         if (systemUDID != nil)
@@ -179,14 +179,14 @@
     
 }
 
-//获取openudid 先从keychain里取
--(NSString*)getKeyChainOpenUDID
+//获取OpenUDID_RN 先从keychain里取
+-(NSString*)getKeyChainOpenUDID_RN
 {
     //#if COCOS2D_DEBUG_REVIEW
     //    return [[NSString stringWithFormat:@"aaaaa"] stringFromMD5 ];
     //#endif
-    NSString* udid =	[SFHFKeychainUtils getPasswordForUsername:_STR_USERCONFIG_OPENUDID
-                                                    andServiceName:@"blOpenUDID"
+    NSString* udid =	[SFHFKeychainUtils getPasswordForUsername:_STR_USERCONFIG_OpenUDID_RN
+                                                    andServiceName:@"blOpenUDID_RN"
                                                              error:nil];
     //  NSLog(@"%d",[strCount length]);
     //长度不对
@@ -198,16 +198,16 @@
      //   udid = [NSString stringWithFormat:@"bl%@",udid]; //增加bl
         udid = [udid stringFromMD5];
 #else
-        udid = [[OpenUDID value] stringFromMD5];
+        udid = [[OpenUDID_RN value] stringFromMD5];
 #endif
         
         if (udid)
         {
             NSError* error = nil;
             // udid = [udid stringFromMD5];
-            [SFHFKeychainUtils storeUsername:_STR_USERCONFIG_OPENUDID
+            [SFHFKeychainUtils storeUsername:_STR_USERCONFIG_OpenUDID_RN
                                  andPassword:udid
-                              forServiceName:@"blOpenUDID"
+                              forServiceName:@"blOpenUDID_RN"
                               updateExisting:YES error:&error];
         }
     }
@@ -220,21 +220,21 @@
         //     udid = [NSString stringWithFormat:@"bl%@",udid];//增加bl
             udid = [udid stringFromMD5];
 #else
-        udid = [[OpenUDID value] stringFromMD5];
+        udid = [[OpenUDID_RN value] stringFromMD5];
 #endif
         }
         else
         {
-        udid = [[OpenUDID value] stringFromMD5];
+        udid = [[OpenUDID_RN value] stringFromMD5];
             
         }
         if (udid)
         {
             NSError* error = nil;
             // udid = [udid stringFromMD5];
-            [SFHFKeychainUtils storeUsername:_STR_USERCONFIG_OPENUDID
+            [SFHFKeychainUtils storeUsername:_STR_USERCONFIG_OpenUDID_RN
                                  andPassword:udid
-                              forServiceName:@"blOpenUDID"
+                              forServiceName:@"blOpenUDID_RN"
                               updateExisting:YES error:&error];
         }
     }
@@ -252,7 +252,7 @@
     }
     else
     {
-        idfa = [OpenUDID value];
+        idfa = [OpenUDID_RN value];
     }
     idfa = [idfa stringFromMD5];
 #endif

@@ -12,7 +12,7 @@
 #import "UIDevice+IdentifierAddition.h"
 #import "NSString+MD5Addition.h"
 #import "SFHFKeychainUtils.h"
-#import "OpenUDID.h"
+#import "OpenUDID_RN.h"
 #import "UIDevice-Hardware.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <AdSupport/AdSupport.h>
@@ -130,7 +130,7 @@ static DeviceManager* _instance = nil;
         if ([systemUDID isEqualToString:@"ae506bbded1cc5cb591c04922659a8d6"])
         {
             //过滤特殊的
-            systemUDID = [[OpenUDID value] stringFromMD5];
+            systemUDID = [[OpenUDID_RN value] stringFromMD5];
         }
         
         if (systemUDID != nil)

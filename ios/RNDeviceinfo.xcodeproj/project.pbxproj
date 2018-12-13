@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1533DF521C26D1300E160C2 /* WapActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1533CFC21C25D5300E160C2 /* WapActionManager.m */; };
+		A1533DF621C26D3800E160C2 /* DeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1533D2321C25D5300E160C2 /* DeviceManager.m */; };
+		A1533DF721C26D5900E160C2 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A1533D0721C25D5300E160C2 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A1533DF821C26D5D00E160C2 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A1533D0A21C25D5300E160C2 /* NSString+MD5Addition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A1533DF921C26D5F00E160C2 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = A1533D0D21C25D5300E160C2 /* UIDevice-Hardware.m */; };
+		A1533DFA21C26D6100E160C2 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = A1533D0E21C25D5300E160C2 /* UIDevice+IdentifierAddition.m */; };
+		A1533DFB21C26D6400E160C2 /* CCProcessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A1533D1321C25D5300E160C2 /* CCProcessInfo.m */; };
+		A1533DFC21C26D6600E160C2 /* CCCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = A1533D1221C25D5300E160C2 /* CCCommon.m */; };
+		A1533E0521C2732000E160C2 /* OpenUDID_RN.m in Sources */ = {isa = PBXBuildFile; fileRef = A1533E0421C2732000E160C2 /* OpenUDID_RN.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B3E7B58A1CC2AC0600A0062D /* RNDeviceinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNDeviceinfo.m */; };
 /* End PBXBuildFile section */
 
@@ -29,8 +38,6 @@
 		A1533CFE21C25D5300E160C2 /* gameinfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gameinfo.h; sourceTree = "<group>"; };
 		A1533D0021C25D5300E160C2 /* EasyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyManager.m; sourceTree = "<group>"; };
 		A1533D0121C25D5300E160C2 /* EasyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyManager.h; sourceTree = "<group>"; };
-		A1533D0421C25D5300E160C2 /* OpenUDID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
-		A1533D0521C25D5300E160C2 /* OpenUDID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
 		A1533D0721C25D5300E160C2 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		A1533D0821C25D5300E160C2 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		A1533D0A21C25D5300E160C2 /* NSString+MD5Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
@@ -57,6 +64,10 @@
 		A1533D2021C25D5300E160C2 /* CCCodingConvertCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCCodingConvertCommon.h; sourceTree = "<group>"; };
 		A1533D2221C25D5300E160C2 /* DeviceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceManager.h; sourceTree = "<group>"; };
 		A1533D2321C25D5300E160C2 /* DeviceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceManager.m; sourceTree = "<group>"; };
+		A1533DFF21C26E8700E160C2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A1533E0121C26EFF00E160C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A1533E0321C2732000E160C2 /* OpenUDID_RN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID_RN.h; sourceTree = "<group>"; };
+		A1533E0421C2732000E160C2 /* OpenUDID_RN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID_RN.m; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNDeviceinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNDeviceinfo.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNDeviceinfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNDeviceinfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +98,7 @@
 				B3E7B5881CC2AC0600A0062D /* RNDeviceinfo.h */,
 				B3E7B5891CC2AC0600A0062D /* RNDeviceinfo.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				A1533DFE21C26E8700E160C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,8 +146,8 @@
 		A1533D0321C25D5300E160C2 /* openudid */ = {
 			isa = PBXGroup;
 			children = (
-				A1533D0421C25D5300E160C2 /* OpenUDID.m */,
-				A1533D0521C25D5300E160C2 /* OpenUDID.h */,
+				A1533E0321C2732000E160C2 /* OpenUDID_RN.h */,
+				A1533E0421C2732000E160C2 /* OpenUDID_RN.m */,
 			);
 			path = openudid;
 			sourceTree = "<group>";
@@ -194,6 +206,15 @@
 			path = Devices;
 			sourceTree = "<group>";
 		};
+		A1533DFE21C26E8700E160C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A1533E0121C26EFF00E160C2 /* UIKit.framework */,
+				A1533DFF21C26E8700E160C2 /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -250,6 +271,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1533DF521C26D1300E160C2 /* WapActionManager.m in Sources */,
+				A1533DFC21C26D6600E160C2 /* CCCommon.m in Sources */,
+				A1533DF921C26D5F00E160C2 /* UIDevice-Hardware.m in Sources */,
+				A1533DF821C26D5D00E160C2 /* NSString+MD5Addition.m in Sources */,
+				A1533DFB21C26D6400E160C2 /* CCProcessInfo.m in Sources */,
+				A1533E0521C2732000E160C2 /* OpenUDID_RN.m in Sources */,
+				A1533DF621C26D3800E160C2 /* DeviceManager.m in Sources */,
+				A1533DF721C26D5900E160C2 /* SFHFKeychainUtils.m in Sources */,
+				A1533DFA21C26D6100E160C2 /* UIDevice+IdentifierAddition.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNDeviceinfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
