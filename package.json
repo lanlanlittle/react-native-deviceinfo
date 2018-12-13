@@ -1,25 +1,22 @@
 {
-  "name": "react-native-deviceinfo",
-  "version": "1.0.0",
-  "description": "ios、android",
+  "name": "react-native-deviceinfo-zxx",
+  "version": "1.0.1",
+  "description": "## Getting started",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lanlanlittle/react-native-deviceinfo.git"
   },
   "keywords": [
     "react-native"
   ],
   "author": "lanlanlittle",
   "license": "ISC",
-  "peerDependencies": {
-    "react-native": "^0.41.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lanlanlittle/react-native-okhttp-download.git"
-  },
   "bugs": {
-    "url": "https://github.com/lanlanlittle/react-native-okhttp-download/issues"
+    "url": "https://github.com/lanlanlittle/react-native-deviceinfo/issues"
   },
-  "homepage": "https://github.com/lanlanlittle/react-native-okhttp-download#readme"
+  "homepage": "https://github.com/lanlanlittle/react-native-deviceinfo#readme"
 }
