@@ -27,6 +27,7 @@
 // 获取useragent
 - (NSString*)getUserAgent;
 - (NSString*)getIdfa;
+- (NSString*)getUpdateChannel;
 
 - (void)setUserAgent:(NSString*)useragent;
 @end
