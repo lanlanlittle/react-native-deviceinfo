@@ -62,6 +62,9 @@ static WapActionManager* _instance = nil;
     
     NSString* idfa = [[DeviceManager shareInstance] getIdfa];
     [dict setValue:idfa forKey:@"idfa"];
+    
+    NSString* updatechannel = [[DeviceManager shareInstance] getUpdateChannel];
+    [dict setValue:idfa forKey:@"updatechannel"];
 
     return dict;
 }

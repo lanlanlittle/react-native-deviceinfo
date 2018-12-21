@@ -81,7 +81,7 @@ public class DeviceUtil {
 //            }
             obj.put("useragent", getUserAgent(context));
 //            obj.put("bOnlyHuge", Integer.valueOf(only_huge));
-//            obj.put("updatechannel", update_channel);
+            obj.put("updatechannel", getUpdateChannel(context));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -246,6 +246,15 @@ public class DeviceUtil {
      */
     public static String getBlChannel(Context context) {
         return AppTools.getApplicationMetaData("BL_CHANNEL",context);
+    }
+
+    /**
+     * 获得对应程序的渠道
+     *
+     * @return
+     */
+    public static String getUpdateChannel(Context context) {
+        return AppTools.getApplicationMetaData("updatechannel",context);
     }
 
     /**

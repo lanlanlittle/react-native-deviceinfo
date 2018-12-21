@@ -160,4 +160,18 @@ static DeviceManager* _instance = nil;
     NSString *adid = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
     return adid;
 }
+
+- (NSString*)getUpdateChannel
+{
+    NSDictionary* dictBundle = [[NSBundle mainBundle ] infoDictionary];
+    if (dictBundle)
+    {
+        NSString* updatechannel = [dictBundle objectForKey:@"updatechannel"];
+        if ([updatechannel length]>0) {
+            return updatechannel;
+        }
+    }
+    
+    return nil;
+}
 @end
