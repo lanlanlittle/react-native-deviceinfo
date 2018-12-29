@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
@@ -15,8 +19,12 @@ import com.zxx.deviceinfo.OpenUDID.OpenUDIDManager;
 
 import org.json.JSONObject;
 
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
 
 /**
@@ -41,11 +49,11 @@ public class DeviceUtil {
         String wholeDeviceInfo = getAndroidWholeDevice(context);
         String packageName = getAppPackageName(context);
         String blChannel = getBlChannel(context);
-        String ip = "";
+        String ip = getIp(context);
         InetAddress inetaddress = null;
         try {
-            inetaddress = getLocalHostLANAddress();
-            ip = inetaddress.getHostAddress();
+//            inetaddress = getLocalHostLANAddress();
+//            ip = inetaddress.getHostAddress();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -140,8 +148,8 @@ public class DeviceUtil {
 
             if(Build.BOARD != null)
                 obj.put("BBOARD", Build.BOARD);
-//			if(Build.BRAND != null)
-//				obj.put("BBRAND", Build.BRAND);
+//          if(Build.BRAND != null)
+//              obj.put("BBRAND", Build.BRAND);
             if(Build.CPU_ABI != null)
                 obj.put("BCPUABI", Build.CPU_ABI);
             if(Build.CPU_ABI2 != null)
@@ -156,12 +164,12 @@ public class DeviceUtil {
                 obj.put("BHOST", Build.HOST);
             if(Build.ID != null)
                 obj.put("BID", Build.ID);
-//			if(Build.MANUFACTURER != null)
-//				obj.put("BMANUFACTURER", Build.MANUFACTURER);
+//          if(Build.MANUFACTURER != null)
+//              obj.put("BMANUFACTURER", Build.MANUFACTURER);
             if(Build.MODEL != null)
                 obj.put("BMODEL", Build.MODEL);
-//			if(Build.PRODUCT != null)
-//				obj.put("BPRODUCT", Build.PRODUCT);
+//          if(Build.PRODUCT != null)
+//              obj.put("BPRODUCT", Build.PRODUCT);
             if(Build.TAGS != null)
                 obj.put("BTAGS", Build.TAGS);
 
@@ -296,6 +304,70 @@ public class DeviceUtil {
 
     private static String getUserAgent(Context context)
     {
-        return WebSettings.getDefaultUserAgent(context);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            return WebSettings.getDefaultUserAgent(context);
+        }else{
+            return "";
+        }
     }
+
+    /**
+     * 获取ip地址
+     */
+    public static String getIp(Context context){
+        String ip = "";
+        ConnectivityManager conMann = (ConnectivityManager)
+                context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo mobileNetworkInfo = conMann.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        NetworkInfo wifiNetworkInfo = conMann.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+
+        if (mobileNetworkInfo.isConnected()) {
+            ip = getLocalIpAddress();
+            //System.out.println("本地ip-----"+ip);
+        }else if(wifiNetworkInfo.isConnected())
+        {
+            WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+            int ipAddress = wifiInfo.getIpAddress();
+            ip = intToIp(ipAddress);
+            //System.out.println("wifi_ip地址为------"+ip);
+        }
+        return ip;
+    }
+
+    public static String getLocalIpAddress() {
+        try {
+            String ipv4;
+            ArrayList<NetworkInterface> nilist = Collections.list(NetworkInterface.getNetworkInterfaces());
+            for (NetworkInterface ni: nilist)
+            {
+                ArrayList<InetAddress>  ialist = Collections.list(ni.getInetAddresses());
+                for (InetAddress address: ialist){
+                    if (!address.isLoopbackAddress() && address instanceof Inet4Address)
+                    {
+                        ipv4 = address.getHostAddress().toString();;
+                        return ipv4;
+                    }
+                }
+
+            }
+
+        } catch (SocketException ex) {
+            Log.e("localip", ex.toString());
+        }
+        return null;
+    }
+
+    public static String intToIp(int ipInt) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(ipInt & 0xFF).append(".");
+        sb.append((ipInt >> 8) & 0xFF).append(".");
+        sb.append((ipInt >> 16) & 0xFF).append(".");
+        sb.append((ipInt >> 24) & 0xFF);
+        return sb.toString();
+    }
+
+
+
+
 }
