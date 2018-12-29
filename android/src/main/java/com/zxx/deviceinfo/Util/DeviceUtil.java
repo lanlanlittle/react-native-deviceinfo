@@ -321,10 +321,10 @@ public class DeviceUtil {
         NetworkInfo mobileNetworkInfo = conMann.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         NetworkInfo wifiNetworkInfo = conMann.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
-        if (mobileNetworkInfo.isConnected()) {
+        if (mobileNetworkInfo!=null && mobileNetworkInfo.isConnected()) {
             ip = getLocalIpAddress();
             //System.out.println("本地ip-----"+ip);
-        }else if(wifiNetworkInfo.isConnected())
+        }else if(wifiNetworkInfo!=null && wifiNetworkInfo.isConnected())
         {
             WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();
