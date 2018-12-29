@@ -145,8 +145,11 @@ static DeviceManager* _instance = nil;
 }
 
 // 获取useragent
+// 获取useragent
 - (NSString*)getUserAgent
 {
+    UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    puseragent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
     return puseragent;
 }
 
